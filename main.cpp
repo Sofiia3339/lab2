@@ -1,3 +1,6 @@
+//compiler MSVC
+//c++ 20
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
