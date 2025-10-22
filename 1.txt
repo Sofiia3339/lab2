@@ -1,0 +1,150 @@
+
+==================================================
+   ANALYSIS FOR DATA SIZE: 1000000 elements
+==================================================
+
+--- Standard Library Algorithms ---
+Time without policy: 0.0001 ms
+Time with sequential policy: 0 ms
+Time with parallel policy: 0.3572 ms
+Time with parallel-unsequenced policy: 0.1089 ms
+
+--- Custom Parallel Algorithm Analysis ---
+Number of Threads (K)    Execution Time (ms) 
+---------------------------------------------
+1                        1.8896              
+2                        1.0896              
+3                        0.8278              
+4                        0.6461              
+5                        0.5565              
+6                        0.4782              
+7                        0.4912              
+8                        0.5493              
+9                        0.5267              
+10                       0.5494              
+11                       0.6233              
+12                       0.604               
+13                       0.6578              
+14                       0.6989              
+15                       0.6743              
+16                       0.6926              
+17                       0.7222              
+18                       0.766               
+19                       0.7443              
+20                       0.8474              
+21                       0.8117              
+22                       0.9022              
+23                       0.905               
+24                       1.0076              
+25                       0.9018              
+26                       0.9322              
+27                       1.071               
+28                       1.0483              
+29                       1.0791              
+30                       1.0169              
+31                       1.0344              
+32                       1.0617              
+---------------------------------------------
+Optimal K found: 6 (Execution time: 0.4782 ms)
+Hardware concurrency: 16
+Ratio (Optimal K / Hardware concurrency): 0.375
+
+==================================================
+   ANALYSIS FOR DATA SIZE: 10000000 elements
+==================================================
+
+--- Standard Library Algorithms ---
+Time without policy: 0 ms
+Time with sequential policy: 0 ms
+Time with parallel policy: 1.3967 ms
+Time with parallel-unsequenced policy: 1.0864 ms
+
+--- Custom Parallel Algorithm Analysis ---
+Number of Threads (K)    Execution Time (ms) 
+---------------------------------------------
+1                        15.1622             
+2                        7.8087              
+3                        5.5999              
+4                        4.388               
+5                        3.5315              
+6                        3.1153              
+7                        2.7756              
+8                        2.594               
+9                        3.5899              
+10                       3.2722              
+11                       3.2562              
+12                       3.0215              
+13                       2.8866              
+14                       2.5925              
+15                       2.856               
+16                       2.5829              
+17                       2.5284              
+18                       2.6067              
+19                       2.4861              
+20                       2.8247              
+21                       2.8045              
+22                       2.652               
+23                       2.5824              
+24                       2.5268              
+25                       2.3624              
+26                       2.5686              
+27                       2.4151              
+28                       2.4874              
+29                       2.3685              
+30                       2.3777              
+31                       2.2205              
+32                       2.3812              
+---------------------------------------------
+Optimal K found: 31 (Execution time: 2.2205 ms)
+Hardware concurrency: 16
+Ratio (Optimal K / Hardware concurrency): 1.9375
+
+==================================================
+   ANALYSIS FOR DATA SIZE: 50000000 elements
+==================================================
+
+--- Standard Library Algorithms ---
+Time without policy: 0 ms
+Time with sequential policy: 0 ms
+Time with parallel policy: 6.5816 ms
+Time with parallel-unsequenced policy: 5.985 ms
+
+--- Custom Parallel Algorithm Analysis ---
+Number of Threads (K)    Execution Time (ms) 
+---------------------------------------------
+1                        75.6131             
+2                        38.3689             
+3                        25.8494             
+4                        19.589              
+5                        15.8703             
+6                        13.347              
+7                        16.8959             
+8                        14.7931             
+9                        13.647              
+10                       12.2891             
+11                       11.5192             
+12                       11.4324             
+13                       10.1431             
+14                       9.749               
+15                       9.0445              
+16                       8.9852              
+17                       12.5295             
+18                       11.9993             
+19                       11.2766             
+20                       10.8415             
+21                       12.2779             
+22                       9.8744              
+23                       11.279              
+24                       11.1986             
+25                       10.7031             
+26                       10.3407             
+27                       10.4635             
+28                       9.7267              
+29                       9.4202              
+30                       9.2196              
+31                       9.2873              
+32                       9.3434              
+---------------------------------------------
+Optimal K found: 16 (Execution time: 8.9852 ms)
+Hardware concurrency: 16
+Ratio (Optimal K / Hardware concurrency): 1
