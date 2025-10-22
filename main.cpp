@@ -23,7 +23,26 @@ int main() {
 
     auto predicate = [](int x) { return x % 2 == 0; };
 
+    std::cout << " Standard Library Algorithms\n";
+    double time_no_policy = MeasureExecutionTime([&]() {
+        volatile bool result = std::none_of(vec.begin(), vec.end(), predicate);
+    });
+    std::cout << "Time without policy: " << time_no_policy << " ms\n";
 
+    double time_seq = MeasureExecutionTime([&]() {
+            volatile bool result = std::none_of(std::execution::seq, vec.begin(), vec.end(), predicate);
+        });
+    std::cout << "Time with sequential policy: " << time_seq << " ms\n";
+
+    double time_par = MeasureExecutionTime([&]() {
+        volatile bool result = std::none_of(std::execution::par, vec.begin(), vec.end(), predicate);
+    });
+    std::cout << "Time with parallel policy: " << time_par << " ms\n";
+
+    double time_par_unseq = MeasureExecutionTime([&]() {
+        volatile bool result = std::none_of(std::execution::par_unseq, vec.begin(), vec.end(), predicate);
+    });
+    std::cout << "Time with parallel-unsequenced policy: " << time_par_unseq << " ms\n";
 
     return 0;
 }
