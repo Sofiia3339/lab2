@@ -3,6 +3,11 @@
 #include <algorithm>
 #include <chrono>
 #include <random>
+#include <thread>
+#include <numeric>
+#include <functional>
+#include <iomanip>
+#include <execution>
 
 template <typename Function>
 double MeasureExecutionTime(Function&& f) {
@@ -11,6 +16,32 @@ double MeasureExecutionTime(Function&& f) {
     auto end = std::chrono::high_resolution_clock::now();
     return std::chrono::duration<double, std::milli>(end - start).count();
 }
+
+bool ParallelNoneOf(const std::vector<int>& vec, int K, std::function<bool(int)> predicate) {
+    size_t dataSize = vec.size();
+    if (dataSize == 0) return true;
+    size_t chunkSize = (dataSize + K - 1) / K;
+    std::vector<std::thread> threads;
+    std::vector<bool> results(K, true);
+
+    for (int i = 0; i < K; ++i) {
+        size_t start_idx = i * chunkSize;
+        size_t end_idx = std::min(start_idx + chunkSize, dataSize);
+
+        if (start_idx >= end_idx) continue;
+
+        threads.emplace_back([&vec, &results, predicate, start_idx, end_idx, i]() {
+            results[i] = std::none_of(vec.begin() + start_idx, vec.begin() + end_idx, predicate);
+        });
+    }
+    for (auto& t : threads) {
+        t.join();
+    }
+
+    return std::all_of(results.begin(), results.end(), [](bool res) { return res; });
+}
+
+
 
 int main() {
     const size_t dataSize = 1000000;
